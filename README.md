@@ -1,4 +1,6 @@
-# Examples
+# CoW Widget - Examples
+
+This project contains multiple examples on different ways to integrate CoW Swap widget into any website.
 
 | Name    | Description                                                      | Details                       |
 | ------- | ---------------------------------------------------------------- | ----------------------------- |
