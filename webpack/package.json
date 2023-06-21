@@ -1,0 +1,16 @@
+{
+  "name": "widget-webpack-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": "true",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.87.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
