@@ -1,6 +1,6 @@
 # CoW Widget - Webpack
 
-Example on a Webpack web using the Widget.
+Example on a Create React App web using the Widget.
 
 The widget is initialised in [src/index.js](src/index.js).
 
