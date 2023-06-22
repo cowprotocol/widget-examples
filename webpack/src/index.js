@@ -12,6 +12,7 @@ document.body.appendChild(cowWidgetContainer);
 // Render widget
 cowSwapWidget({
   container: cowWidgetContainer,
+
   // Optional params:
   width: 600,
   height: 800,
