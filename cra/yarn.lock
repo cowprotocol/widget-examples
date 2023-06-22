@@ -1165,10 +1165,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cowprotocol/widget-lib@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-lib/-/widget-lib-0.0.7.tgz#3a847b04b26070a8d4d196ef60ddd813c1ce82f7"
-  integrity sha512-4uLvrHZLJ7WzmCFKRJATPDfNoQiZHpeXBWk3nB4sgkX+GUwFbDDR+J8dewbETcYMmnGm5+xd4bDa4/cou+rs8Q==
+"@cowprotocol/widget-react@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-react/-/widget-react-0.0.2.tgz#055d9cc1dc6354e523fb4328e6b105cd3d208b86"
+  integrity sha512-LAN0qJYCyUY6uR/ZkRd3FudAlMlfP1IX4/lV6h8CTqjwljv2NLdj2WgKTn/VVC+/VojDKbeSMd0Sy4VFIEZZ7w==
 
 "@csstools/normalize.css@*":
   version "12.0.0"
