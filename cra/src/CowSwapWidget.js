@@ -4,7 +4,6 @@ import { cowSwapWidget } from "@cowprotocol/widget-lib";
 
 export function CowSwapWidget() {
   const cowWidgetRef = useRef(null);
-  // const cowWidgetContainer = cowWidgetRef?.current;
 
   useEffect(() => {
     if (cowWidgetRef.current) {

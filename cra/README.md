@@ -2,19 +2,32 @@
 
 Example on a Create React App web using the Widget.
 
-The widget is initialised in [src/index.js](src/index.js).
+The widget is created as a React component in [src/CowSwapWidget.js](src/CowSwapWidget.js).
 
-It basically creates an empty div, which acts as the widget container, and then uses the `cowSwapWidget` function, which is exported in `@cowprotocol/widget-lib`) to initialise it.
+It basically:
+
+- Renders an empty div, with a `ref` parameter, so we can get a reference to the div
+- Adds an `useEffect` that would render in that div the widget using `cowSwapWidget` (imported from `@cowprotocol/widget-lib`)
 
 ```js
-// Add empty div
-const cowWidgetContainer = document.createElement("div");
-document.body.appendChild(cowWidgetContainer);
+import { useEffect, useRef } from "react";
 
-cowSwapWidget({
-  container: cowWidgetContainer,
-  // ...
-});
+import { cowSwapWidget } from "@cowprotocol/widget-lib";
+
+export function CowSwapWidget() {
+  const cowWidgetRef = useRef(null);
+
+  useEffect(() => {
+    if (cowWidgetRef.current) {
+      cowSwapWidget({
+        container: cowWidgetRef.current,
+        // ...
+      });
+    }
+  }, [cowWidgetRef]);
+
+  return <div ref={cowWidgetRef}></div>;
+}
 ```
 
 ## Test it
