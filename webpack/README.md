@@ -2,22 +2,17 @@
 
 Example on a Webpack web using the Widget.
 
-The widget is initialised in [src/index.js](src/index.js).
+The widget is initialized in [src/index.js](src/index.js).
 
-It basically creates an empty div, which acts as the widget container, and then uses the `cowSwapWidget` function, which is exported in `@cowprotocol/widget-lib`) to initialise it.
+The code should be self explanatory, and has comments explaining what it does.
 
-```js
-// Add empty div
-const cowWidgetContainer = document.createElement("div");
-document.body.appendChild(cowWidgetContainer);
+For more details, see:
 
-cowSwapWidget({
-  container: cowWidgetContainer,
-  // ...
-});
-```
+- **Widget Web**: [https://cow.fi/widget](https://cow.fi/widget)
+- **Widget Configurator**: [https://widget.cow.fi](https://widget.cow.fi)
+- **Other Examples**: [https://github.com/cowprotocol/widget-examples](https://github.com/cowprotocol/widget-examples)
 
-## Test it
+## Run
 
 ```bash
 # Install dependencies
