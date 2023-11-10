@@ -56,7 +56,7 @@ title.style = "color: #fff; margin: 30px 30px 0 30px";
 switchTokensBtn.style =
   "padding: 10px; border-radius: 15px; margin: 30px 15px; ";
 main.style =
-  "display:flex; flex-direction: column; lign-items: center; margin-top: 0; align-items: center;";
+  "display:flex; flex-direction: column; margin-top: 0; align-items: center;";
 document.body.style =
   "height: 100vh; display: flex; justify-content: center; background-color: #06172e; margin: 0;";
 // container.style = `width: ${params.width}`;
