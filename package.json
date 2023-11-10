@@ -1,0 +1,7 @@
+{
+  "name": "widget-examples",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p build; EXAMPLES=webpack,react-cra ./build.sh"
+  }
+}
