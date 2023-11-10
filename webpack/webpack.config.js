@@ -12,6 +12,7 @@ module.exports = {
   ],
   output: {
     filename: "main.js",
+    publicPath: "webpack",
     path: path.resolve(__dirname, "build"),
   },
   devServer: {
