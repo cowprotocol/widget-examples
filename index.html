@@ -2,12 +2,72 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>CoW Widget - Webpack Example</title>
+    <title>CoW Widget - Examples</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
+    <style>
+      body {
+        height: 100vh;
+        display: flex;        
+        justify-content: center;
+        background-image: radial-gradient(at 5% 70%, rgb(199, 233, 255) 0px, transparent 50%), radial-gradient(at 47% 40%, rgb(194, 220, 255) 0px, transparent 50%), radial-gradient(at 73% 3%, rgb(247, 217, 243) 0px, transparent 50%), radial-gradient(at 44% 13%, rgb(255, 227, 219) 0px, transparent 50%), radial-gradient(at 61% 70%, rgb(199, 233, 255) 0px, transparent 50%), radial-gradient(at 32% 81%, rgb(199, 233, 255) 0px, transparent 50%), radial-gradient(at 19% 39%, rgb(199, 233, 255) 0px, transparent 50%);
+        background-color: rgb(255, 255, 255);
+        margin: 0;
+        color: rgb(5, 43, 101);
+
+        font-family: 'Inter';
+        font-size: 20px;
+      }
+
+      h1 {
+        font-size: 40px;
+        margin-top: 30px;
+      }
+      a, a:visited, a:active {
+        color: rgb(5, 43, 101);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        display:flex;
+        flex-direction: column;
+        margin-top: 0; 
+      }
+      .external{
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      section {
+        margin: 20px 0;
+      }
+    </style>
   </head>
   <body>
-    <h1>CoW Widget - Webpack Example</h1>
-    <div id="cow-widget"></div>
+    <main>
+      <h1>CoW Widget: Examples</h1>
 
-    <script src="main.js"></script>
+      <section>
+        <p>Examples:</p>
+        <ul>
+          <li><a href="react-cra" target="_blank" rel="noopener">react-cra</a>: Basic Create React Application</li>
+          <li><a href="webpack" target="_blank" rel="noopener">webpack</a>: Basic Webpack Application</li>
+        </ul>
+      </section>
+
+      <section>
+        See also:
+        <ul class="external">
+          <li>🏡 <a href="https://cow.fi/widget" target="_blank" rel="noopener">CoW Widget - Web</a>: Home for the CoW Widget</li>
+          <li>🛠️ <a href="https://widget.cow.fi/" target="_blank" rel="noopener">Configuator</a>: Basic Webpack Application</li>
+        </ul>
+      </section>
+    </main>
+
   </body>
 </html>
