@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 
 # Check if the environment variable is set
@@ -14,7 +15,7 @@ IFS=',' read -ra example_names <<< "$EXAMPLES"
 # Iterate over the array and echo each value
 for example_name in "${example_names[@]}"; do
   echo "📦 Building $example_name..."
-  (cd "$example_name/build/" && cp -v -r * "./build/$example_name/")
+  (cd "$example_name/build/" && mkdir -p "../../build/$example_name/" && cp -v -r * "../../build/$example_name/")
   echo "Static files copied from ./$example_name/build to ./build/$example_name"
   echo
 done
