@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@cowprotocol/widget-lib@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-lib/-/widget-lib-0.0.7.tgz#3a847b04b26070a8d4d196ef60ddd813c1ce82f7"
-  integrity sha512-4uLvrHZLJ7WzmCFKRJATPDfNoQiZHpeXBWk3nB4sgkX+GUwFbDDR+J8dewbETcYMmnGm5+xd4bDa4/cou+rs8Q==
+"@cowprotocol/widget-lib@~0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-lib/-/widget-lib-0.1.4.tgz#ae723031049fae8e6939270bf143b69f86cae873"
+  integrity sha512-OIbRr2n6jxzq0bP36hbWR0JsvWyBlcEv7bwv7/vYiYcLvLE6Zqk38Xg0VIO9JavqisScjyAZ0eff1CFZJEaB6Q==
 
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.7"
