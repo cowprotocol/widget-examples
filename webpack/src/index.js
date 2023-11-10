@@ -1,8 +1,7 @@
 import { cowSwapWidget } from "@cowprotocol/widget-lib";
 
-// Add empty container
+// 1️⃣ Add empty container
 const container = document.createElement("div");
-document.body.appendChild(container);
 
 //  Fill this form https://cowprotocol.typeform.com/to/rONXaxHV once you pick your "appCode"
 let params = {
@@ -31,15 +30,11 @@ let params = {
   interfaceFeeBips: "50", // Fill the form above if you are interested
 };
 
-// Render widget
-const updateWidget = cowSwapWidget(container, params);
-
-// Update widget
+// 2️⃣ Update widget
 //    - You can update the widget with new params any time
 //    - For example, add a button to invert the token selection
 const switchTokensBtn = document.createElement("button");
 switchTokensBtn.innerText = "🔄 Invert token selection";
-switchTokensBtn.style = "position";
 switchTokensBtn.addEventListener("click", () => {
   params = {
     ...params,
@@ -50,16 +45,26 @@ switchTokensBtn.addEventListener("click", () => {
   updateWidget(params);
 });
 
-// Style HTML (no widget related)
-//   Adds a header with a title, and some basic styles
-switchTokensBtn.style = "padding: 10px; border-radius: 15px; margin: 20px; ";
-document.body.style =
-  "min-height: 700px; height: 100vh; display: flex; align-items: center; margin-top: 120px; justify-content: center; flex-direction: column-reverse; background-color: #06172e; padding: 10px;";
+// 💅 Style HTML (no widget related)
+//   Adds some <header /> <button /> , <main /> and some basic styles
 const title = document.createElement("h1");
 title.innerText = "CoW Widget - Webpack example";
-title.style = "color: #fff";
 const header = document.createElement("header");
-header.appendChild(title);
+const main = document.createElement("main");
 header.style = "text-align: center;";
+title.style = "color: #fff; margin: 30px 30px 0 30px";
+switchTokensBtn.style =
+  "padding: 10px; border-radius: 15px; margin: 30px 15px; ";
+main.style =
+  "display:flex; flex-direction: column; lign-items: center; margin-top: 0; align-items: center;";
+document.body.style =
+  "height: 100vh; display: flex; justify-content: center; background-color: #06172e; margin: 0;";
+// container.style = `width: ${params.width}`;
+header.appendChild(title);
 header.appendChild(switchTokensBtn);
-document.body.appendChild(header);
+main.appendChild(header);
+main.appendChild(container);
+document.body.appendChild(main);
+
+// 3️⃣ Render widget
+const updateWidget = cowSwapWidget(container, params);
