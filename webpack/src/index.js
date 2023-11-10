@@ -49,20 +49,28 @@ switchTokensBtn.addEventListener("click", () => {
 //   Adds some <header /> <button /> , <main /> and some basic styles
 const title = document.createElement("h1");
 title.innerText = "CoW Widget - Webpack example";
-const header = document.createElement("header");
+const link = document.createElement("a");
+link.href = "https://github.com/cowprotocol/widget-examples/tree/main/webpack";
+link.target = "_blank";
+link.rel = "noreferrer";
+link.innerText = "👀 Show me the code";
+link.style = "color: white";
+// const header = document.createElement("header");
 const main = document.createElement("main");
-header.style = "text-align: center;";
-title.style = "color: #fff; margin: 30px 30px 0 30px";
+// header.style = "text-align: center;";
+title.style = "margin: 30px 30px 10px 30px";
 switchTokensBtn.style =
   "padding: 10px; border-radius: 15px; margin: 30px 15px; ";
 main.style =
   "display:flex; flex-direction: column; margin-top: 0; align-items: center;";
 document.body.style =
-  "height: 100vh; display: flex; justify-content: center; background-color: #06172e; margin: 0;";
+  "height: 100vh; display: flex; justify-content: center; color: #fff; background-color: #06172e; margin: 0;";
 // container.style = `width: ${params.width}`;
-header.appendChild(title);
-header.appendChild(switchTokensBtn);
-main.appendChild(header);
+// header.appendChild(title);
+// header.appendChild(link);
+main.appendChild(title);
+main.appendChild(link);
+main.append(switchTokensBtn);
 main.appendChild(container);
 document.body.appendChild(main);
 

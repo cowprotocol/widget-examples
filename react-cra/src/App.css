@@ -9,6 +9,15 @@ body {
   color: white
 }
 
+a, a, a:visited, a:active {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 main {
   display:flex;
   flex-direction: column;

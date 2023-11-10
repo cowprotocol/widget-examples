@@ -47,6 +47,13 @@ function App() {
         <header>
           <h1>CoW Widget - Create React App</h1>
         </header>
+        <a
+          href="https://github.com/cowprotocol/widget-examples/tree/main/react-cra"
+          target="_blank"
+          rel="noreferrer"
+        >
+          👀 Show me the code
+        </a>
         <button id="switchTokensBtn" onClick={switchTokens}>
           🔄 Invert token selection
         </button>
