@@ -12,7 +12,7 @@ module.exports = {
   ],
   output: {
     filename: "main.js",
-    publicPath: "webpack",
+    publicPath: process.env.PUBLIC_URL,
     path: path.resolve(__dirname, "build"),
   },
   devServer: {

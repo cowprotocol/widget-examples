@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack --mode production"
+    "build": "PUBLIC_URL=webpack webpack --mode production"
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.5.3",
