@@ -12,14 +12,16 @@ let params = {
   provider: window.ethereum, // Ethereum EIP-1193 provider. For a quick test, you can pass `window.ethereum`, but consider using something like https://web3modal.com
   chainId: 1, // 1 (Mainnet), 5 (Goerli), 100 (Gnosis)
   tradeType: "swap", // swap, limit or advanced
-  sell: {
-    // Sell token. Optionally add amount for sell orders
-    asset: "USDC",
-    amount: "1000",
-  },
-  buy: {
-    // Buy token. Optionally add amount for buy orders
-    asset: "COW",
+  tradeAssets: {
+    sell: {
+      // Sell token. Optionally add amount for sell orders
+      asset: "USDC",
+      amount: "1000",
+    },
+    buy: {
+      // Buy token. Optionally add amount for buy orders
+      asset: "COW",
+    },
   },
   enabledTradeTypes: [
     // swap, limit and/or advanced
@@ -43,8 +45,10 @@ switchTokensBtn.style = "position";
 switchTokensBtn.addEventListener("click", () => {
   params = {
     ...params,
-    sell: params.buy,
-    buy: params.sell,
+    tradeAssets: {
+      sell: params.tradeAssets.buy,
+      buy: params.tradeAssets.sell,
+    }
   };
   console.log("switching tokens", params);
   updateWidget(params);
