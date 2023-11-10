@@ -1,5 +1,7 @@
 # CoW Widget - Examples
 
+🐮 See DEMO here: [https://examples.widget.cow.fi](https://examples.widget.cow.fi)
+
 This project contains multiple examples on different ways to integrate CoW Swap widget into any website.
 
 | Name        | Description                                                                 | Details                         |
