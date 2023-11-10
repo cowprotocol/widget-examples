@@ -13,7 +13,7 @@ IFS=',' read -ra example_names <<< "$EXAMPLES"
 
 # Iterate over the array and echo each value
 for example_name in "${example_names[@]}"; do
-  echo "📦 Building $example_name"
+  echo "📦 Building $example_name..."
   cp -v -r "$example_name/build/" "./build/$example_name/"
   echo "Static files copied from ./$example_name/build to ./build/$example_name"
   echo
