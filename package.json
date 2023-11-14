@@ -2,6 +2,6 @@
   "name": "widget-examples",
   "private": true,
   "scripts": {
-    "build": "rm -rf build && mkdir -p build && cp ./index.html ./build && EXAMPLES=webpack,react-cra ./build.sh"
+    "build": "rm -rf build && mkdir -p build && cp ./index.html ./build && EXAMPLES=webpack,react-cra,classic ./build.sh"
   }
 }
