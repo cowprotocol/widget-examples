@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "react-cra-ts/static/css/main.267bd0e0.css",
+    "main.js": "react-cra-ts/static/js/main.2037c018.js",
+    "index.html": "react-cra-ts/index.html",
+    "main.267bd0e0.css.map": "react-cra-ts/static/css/main.267bd0e0.css.map",
+    "main.2037c018.js.map": "react-cra-ts/static/js/main.2037c018.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.267bd0e0.css",
+    "static/js/main.2037c018.js"
+  ]
+}
