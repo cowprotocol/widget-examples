@@ -5,12 +5,13 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import { appTheme } from "./theme";
-import { Grid } from "@mui/material";
+import { Divider, Grid, Stack } from "@mui/material";
 import { Drawer } from "./Drawer";
 import { Copyright } from "./Copywrite";
 import { AppBar } from "./AppBar";
+import { TradeWidget } from "../TradeWidget";
 
-export const DRAWER_WIDTH: number = 600;
+export const DRAWER_WIDTH: number = 480;
 
 export default function Layout() {
   const [open, setOpen] = React.useState(true);
@@ -23,7 +24,14 @@ export default function Layout() {
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar open={open} toggleDrawer={toggleDrawer} />
-        <Drawer open={open} toggleDrawer={toggleDrawer} />
+        <Drawer open={open} toggleDrawer={toggleDrawer}>
+          <Stack spacing={2} alignItems="center">
+            <Box width={450} height={340} sx={{ border: "2px solid" }} />
+            <Divider />
+            <TradeWidget />
+            {/* <Box width={450} height={640} sx={{ border: "2px solid" }} /> */}
+          </Stack>
+        </Drawer>
         <Box
           component="main"
           sx={{

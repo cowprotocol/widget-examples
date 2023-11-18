@@ -1,8 +1,7 @@
 import { createTheme } from "@mui/material";
 import { green, orange } from "@mui/material/colors";
 
-const DARK_BLUE = "#052B65";
-
+const DARK_BLUE = "#052B65"; // #071730
 declare module "@mui/material/styles" {
   interface ThemeOptions {
     status?: {

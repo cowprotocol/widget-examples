@@ -5,6 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 import { DRAWER_WIDTH } from ".";
+import { PropsWithChildren } from "react";
 
 export const StyledDrawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -24,19 +25,17 @@ export const StyledDrawer = styled(MuiDrawer, {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      width: theme.spacing(7),
-      [theme.breakpoints.up("sm")]: {
-        width: theme.spacing(9),
-      },
+      width: 0,
     }),
   },
 }));
 
-export interface DrawerProps {
+export type DrawerProps = PropsWithChildren<{
   open: boolean;
   toggleDrawer: () => void;
-}
-export function Drawer({ open, toggleDrawer }: DrawerProps) {
+}>;
+
+export function Drawer({ open, toggleDrawer, children }: DrawerProps) {
   return (
     <StyledDrawer variant="permanent" open={open}>
       <Toolbar
@@ -51,7 +50,7 @@ export function Drawer({ open, toggleDrawer }: DrawerProps) {
           <ChevronLeftIcon />
         </IconButton>
       </Toolbar>
-      Hello
+      {children}
     </StyledDrawer>
   );
 }
