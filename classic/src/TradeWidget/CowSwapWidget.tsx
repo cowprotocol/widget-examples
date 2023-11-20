@@ -1,5 +1,5 @@
 import {
-  CowSwapWidget,
+  CowSwapWidget as CowSwapWidgetComponent,
   CowSwapWidgetParams,
   TradeType,
 } from "@cowprotocol/widget-react";
@@ -27,6 +27,6 @@ const params: CowSwapWidgetParams = {
   interfaceFeeBips: "50", // Fill the form above if you are interested
 };
 
-export function TradeWidget() {
-  return <CowSwapWidget params={params} />;
+export function CowSwapWidget() {
+  return <CowSwapWidgetComponent params={params} />;
 }

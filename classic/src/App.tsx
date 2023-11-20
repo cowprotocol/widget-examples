@@ -4,9 +4,37 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import Layout from "./Layout";
+import { Paper } from "@mui/material";
+import { TradeWidget } from "./TradeWidget";
+import { useState } from "react";
+import { MARKETS } from "./data";
 
 function App() {
-  return <Layout />;
+  const [market, setMarket] = useState(MARKETS[0]);
+  const [amount, setAmount] = useState(""); // TODO: use better types
+  const [price, setPrice] = useState("");
+
+  const tradeWidget = (
+    <TradeWidget
+      markets={MARKETS}
+      market={market}
+      amount={amount}
+      price={price}
+      onUpdateAmount={(amount) => setAmount(amount)}
+      onUpdatePrice={(price) => setPrice(price)}
+      onUpdateMarket={(market) => setMarket(market)}
+    />
+  );
+  return (
+    <Layout sidebar={tradeWidget}>
+      <Paper sx={{ minHeight: "70vh" }}>
+        MARKET: {JSON.stringify(market)}
+        <br />
+        PRICE: {price} <br />
+        AMOUNT: {amount}
+      </Paper>
+    </Layout>
+  );
 }
 
 export default App;

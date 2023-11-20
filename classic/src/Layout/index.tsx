@@ -3,17 +3,19 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Paper from "@mui/material/Paper";
 import { appTheme } from "./theme";
-import { Divider, Grid, Stack } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Drawer } from "./Drawer";
 import { Copyright } from "./Copywrite";
 import { AppBar } from "./AppBar";
-import { TradeWidget } from "../TradeWidget";
 
 export const DRAWER_WIDTH: number = 480;
 
-export default function Layout() {
+export type LayoutProps = React.PropsWithChildren<{
+  sidebar: React.ReactNode;
+}>;
+
+export default function Layout({ sidebar, children }: LayoutProps) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -25,12 +27,7 @@ export default function Layout() {
         <CssBaseline />
         <AppBar open={open} toggleDrawer={toggleDrawer} />
         <Drawer open={open} toggleDrawer={toggleDrawer}>
-          <Stack spacing={2} alignItems="center">
-            <Box width={450} height={340} sx={{ border: "2px solid" }} />
-            <Divider />
-            <TradeWidget />
-            {/* <Box width={450} height={640} sx={{ border: "2px solid" }} /> */}
-          </Stack>
+          {sidebar}
         </Drawer>
         <Box
           component="main"
@@ -48,7 +45,7 @@ export default function Layout() {
           <Box sx={{ mt: 4, mb: 4 }}>
             <Grid container>
               <Grid item xs>
-                <Paper sx={{ minHeight: "70vh" }}>Classy!</Paper>
+                {children}
               </Grid>
             </Grid>
             <Copyright sx={{ pt: 4 }} />
