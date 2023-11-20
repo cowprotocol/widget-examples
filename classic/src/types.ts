@@ -1,3 +1,5 @@
+export type Kind = "sell" | "buy";
+
 export interface ERC20 {
   symbol: string;
   name: string;

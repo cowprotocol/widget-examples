@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Input } from "@mui/material";
+import { Autocomplete, Input } from "@mui/material";
 import { Market } from "../types";
 
 export interface LimitOrderFormProps {
@@ -19,9 +19,9 @@ export function MarketSelector({
         autoHighlight
         autoSelect
         value={market}
-        onChange={onUpdateMarket}
+        onChange={(_e, market) => market && onUpdateMarket(market)}
         options={markets}
-        renderInput={() => <Input type="text"></Input>}
+        renderInput={() => <Input type="text" value={""}></Input>}
       />
     </>
   );

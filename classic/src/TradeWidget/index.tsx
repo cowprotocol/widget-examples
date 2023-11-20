@@ -1,24 +1,27 @@
-import { Box, Divider, Stack } from "@mui/material";
+import { Box, Button, Divider, Stack } from "@mui/material";
 import { MarketSelector } from "./MarketSelector";
 import { LimitOrderForm } from "./LimitOrderForm";
-import { Market } from "../types";
+import { Kind, Market } from "../types";
 
 export interface TradeWidgetProps {
+  kind: Kind;
   market: Market;
   markets: Market[];
-  onUpdateMarket(market: Market): void;
-
   price: string;
   amount: string;
+  onUpdateKind(kind: Kind): void;
+  onUpdateMarket(market: Market): void;
   onUpdatePrice(price: string): void;
   onUpdateAmount(amount: string): void;
 }
 
 export function TradeWidget({
+  kind,
   market,
   markets,
   price,
   amount,
+  onUpdateKind,
   onUpdatePrice,
   onUpdateAmount,
   onUpdateMarket,
@@ -38,6 +41,15 @@ export function TradeWidget({
       />
       <Divider />
       {/* <TradeWidget /> */}
+
+      <Box width={450} sx={{ border: "2px solid" }}>
+        <Button onClick={() => onUpdateKind("sell")} disabled={kind === "sell"}>
+          SELL
+        </Button>
+        <Button onClick={() => onUpdateKind("buy")} disabled={kind === "buy"}>
+          BUY
+        </Button>
+      </Box>
       <Box width={450} height={640} sx={{ border: "2px solid" }}>
         {JSON.stringify(market)} @ {price} * {amount}
       </Box>

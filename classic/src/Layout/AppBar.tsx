@@ -2,9 +2,7 @@ import { styled } from "@mui/material/styles";
 
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import logo from "/classic-cow-white.png";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -67,11 +65,11 @@ export function AppBar({ open, toggleDrawer }: AppBarProps) {
         >
           Classic CoW
         </Typography>
-        <IconButton color="inherit">
+        {/* <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">
             <NotificationsIcon />
           </Badge>
-        </IconButton>
+        </IconButton> */}
       </Toolbar>
     </SyledAppBar>
   );
