@@ -9,7 +9,6 @@ const params: CowSwapWidgetParams = {
   appCode: "Classic CoW",
   width: "450px",
   height: "640px",
-  provider: window.ethereum, // Ethereum EIP-1193 provider. For a quick test, you can pass `window.ethereum`, but consider using something like https://web3modal.com
   chainId: 1, // 1 (Mainnet), 5 (Goerli), 100 (Gnosis)
   tradeType: TradeType.SWAP,
   sell: {
@@ -24,9 +23,12 @@ const params: CowSwapWidgetParams = {
     TradeType.SWAP,
   ],
   theme: "dark", // light/dark or provide your own color palette
-  interfaceFeeBips: "50", // Fill the form above if you are interested
+  partnerFee: {
+    bps: 50,
+    recipient: "0x0000000000000000000000000000000000000000"
+  }
 };
 
 export function CowSwapWidget() {
-  return <CowSwapWidgetComponent params={params} />;
+  return <CowSwapWidgetComponent params={params} provider={window.ethereum} />;
 }
