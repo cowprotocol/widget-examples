@@ -11,9 +11,10 @@
   "devDependencies": {
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.87.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "@cowprotocol/widget-lib": "~0.2.0"
+    "@cowprotocol/widget-lib": "~0.7.0"
   }
 }

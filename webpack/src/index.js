@@ -1,4 +1,7 @@
-import { cowSwapWidget } from "@cowprotocol/widget-lib";
+import { createCowSwapWidget } from "@cowprotocol/widget-lib";
+
+// Ethereum EIP-1193 provider. For a quick test, you can pass `window.ethereum`, but consider using something like https://web3modal.com
+const provider = window.ethereum;
 
 // 1️⃣ Add empty container
 const container = document.createElement("div");
@@ -8,7 +11,6 @@ let params = {
   appCode: "Widget Examples: Webpack", // Name of your app (max 50 characters)
   width: "450px", // Width in pixels (or 100% to use all available space)
   height: "640px",
-  provider: window.ethereum, // Ethereum EIP-1193 provider. For a quick test, you can pass `window.ethereum`, but consider using something like https://web3modal.com
   chainId: 1, // 1 (Mainnet), 5 (Goerli), 100 (Gnosis)
   tradeType: "swap", // swap, limit or advanced
   sell: {
@@ -27,7 +29,10 @@ let params = {
     "advanced",
   ],
   theme: "dark", // light/dark or provide your own color palette
-  interfaceFeeBips: "50", // Fill the form above if you are interested
+  partnerFee: {
+    bps: 50,
+    recipient: "0x0000000000000000000000000000000000000000"
+  }
 };
 
 // 2️⃣ Update widget
@@ -42,7 +47,7 @@ switchTokensBtn.addEventListener("click", () => {
     buy: params.sell,
   };
   console.log("switching tokens", params);
-  updateWidget(params);
+  updateParams(params);
 });
 
 // 💅 Style HTML (no widget related)
@@ -75,4 +80,4 @@ main.appendChild(container);
 document.body.appendChild(main);
 
 // 3️⃣ Render widget
-const updateWidget = cowSwapWidget(container, params);
+const {updateParams} = createCowSwapWidget(container, {params, provider});
