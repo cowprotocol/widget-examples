@@ -74,7 +74,7 @@ clearTokensBtn.style = "padding: 10px; border-radius: 15px; margin: 0 15px;"
 buttonContainer.appendChild(switchTokensBtn)
 buttonContainer.appendChild(clearTokensBtn)
 
-// 💅 Style HTML (no widget related)
+// 💅 Style HTML (not widget related)
 //   Adds some <header /> <button /> , <main /> and some basic styles
 const title = document.createElement("h1")
 title.innerText = "CoW Widget - Webpack example"
