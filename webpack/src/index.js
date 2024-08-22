@@ -50,6 +50,30 @@ switchTokensBtn.addEventListener("click", () => {
   updateParams(params)
 })
 
+const clearTokensBtn = document.createElement("button")
+clearTokensBtn.innerText = "🧹 Clear tokens"
+clearTokensBtn.addEventListener("click", () => {
+  params = {
+    ...params,
+    sell: undefined,
+    buy: undefined,
+  }
+  console.log("clearing tokens", params)
+  updateParams(params)
+})
+
+// Create a container for the buttons
+const buttonContainer = document.createElement("div")
+buttonContainer.style =
+  "display: flex; justify-content: center; margin: 30px 0;"
+
+switchTokensBtn.style = "padding: 10px; border-radius: 15px; margin: 0 15px;"
+clearTokensBtn.style = "padding: 10px; border-radius: 15px; margin: 0 15px;"
+
+// Add buttons to the button container
+buttonContainer.appendChild(switchTokensBtn)
+buttonContainer.appendChild(clearTokensBtn)
+
 // 💅 Style HTML (no widget related)
 //   Adds some <header /> <button /> , <main /> and some basic styles
 const title = document.createElement("h1")
@@ -63,8 +87,6 @@ link.style = "color: white"
 // const header = document.createElement("header");
 const main = document.createElement("main")
 // header.style = "text-align: center;";
-switchTokensBtn.style =
-  "padding: 10px; border-radius: 15px; margin: 30px 15px; ";
 title.style = "margin: 30px 30px 10px 30px"
 main.style =
   "display:flex; flex-direction: column; margin-top: 0; align-items: center;"
@@ -73,9 +95,9 @@ document.body.style =
 // container.style = `width: ${params.width}`;
 // header.appendChild(title);
 // header.appendChild(link);
-main.append(switchTokensBtn);
 main.appendChild(title)
 main.appendChild(link)
+main.appendChild(buttonContainer)
 main.appendChild(container)
 document.body.appendChild(main)
 
