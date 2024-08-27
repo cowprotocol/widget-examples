@@ -40,19 +40,28 @@ let params = {
 const form = document.createElement("form")
 form.style = "display: flex; flex-direction: column; margin-bottom: 20px;"
 
-// Add input fields for each param
-Object.keys(params).forEach((key) => {
-  if (typeof params[key] !== "object") {
-    const label = document.createElement("label")
-    label.textContent = key
-    const input = document.createElement("input")
-    input.type = "text"
-    input.value = params[key]
-    input.name = key
-    label.appendChild(input)
-    form.appendChild(label)
-  }
-})
+// Function to create input fields for nested objects
+function createNestedInputs(obj, prefix = "") {
+  Object.keys(obj).forEach((key) => {
+    const fullKey = prefix ? `${prefix}.${key}` : key
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      createNestedInputs(obj[key], fullKey)
+    } else {
+      const label = document.createElement("label")
+      label.textContent = fullKey
+      const input = document.createElement("input")
+      input.type = "text"
+      input.value = obj[key] !== undefined ? obj[key] : ""
+      input.name = fullKey
+      input.placeholder = "undefined"
+      label.appendChild(input)
+      form.appendChild(label)
+    }
+  })
+}
+
+// Add input fields for each param, including nested ones
+createNestedInputs(params)
 
 // Add button to update params
 const updateButton = document.createElement("button")
@@ -66,8 +75,24 @@ form.addEventListener("submit", (e) => {
   const formData = new FormData(form)
   const newParams = { ...params }
   for (let [key, value] of formData.entries()) {
-    newParams[key] = value
+    const keys = key.split(".")
+    let current = newParams
+    for (let i = 0; i < keys.length; i++) {
+      if (i === keys.length - 1) {
+        if (value === "") {
+          current[keys[i]] = undefined
+        } else {
+          current[keys[i]] = value
+        }
+      } else {
+        if (!current[keys[i]] || typeof current[keys[i]] !== "object") {
+          current[keys[i]] = {}
+        }
+        current = current[keys[i]]
+      }
+    }
   }
+  console.log("Updating params", params, newParams)
   params = newParams
   updateWidget()
 })
@@ -76,12 +101,18 @@ form.addEventListener("submit", (e) => {
 let widgetApi
 function updateWidget(forceNew = false) {
   if (widgetApi && !forceNew) {
+    console.log("Updating widget", params)
     widgetApi.updateParams(params)
   } else {
     // Remove the existing widget if it exists
     if (widgetApi) {
+      console.log(
+        "Widget exists, removing it",
+        document.querySelectorAll("iframe")
+      )
       container.innerHTML = ""
     }
+    console.log("Force creating widget", params)
     widgetApi = createCowSwapWidget(container, { params, provider })
   }
 }
