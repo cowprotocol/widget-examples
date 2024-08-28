@@ -33,6 +33,95 @@ let params = {
     bps: 50,
     recipient: "0x0000000000000000000000000000000000000000",
   },
+  // baseUrl: "http://localhost:3000",
+}
+
+// Create a form for editing params
+const form = document.createElement("form")
+form.style = "display: flex; flex-direction: column; margin-bottom: 20px;"
+
+// Function to create input fields for nested objects
+function createNestedInputs(obj, prefix = "") {
+  Object.keys(obj).forEach((key) => {
+    const fullKey = prefix ? `${prefix}.${key}` : key
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      createNestedInputs(obj[key], fullKey)
+    } else {
+      const label = document.createElement("label")
+      label.textContent = fullKey
+      const input = document.createElement("input")
+      input.type = "text"
+      input.value = obj[key] !== undefined ? obj[key] : ""
+      input.name = fullKey
+      input.placeholder = "undefined"
+      label.appendChild(input)
+      form.appendChild(label)
+    }
+  })
+}
+
+// Add input fields for each param, including nested ones
+createNestedInputs(params)
+
+// Add button to update params
+const updateButton = document.createElement("button")
+updateButton.textContent = "Update Params"
+updateButton.type = "submit"
+form.appendChild(updateButton)
+
+// Function to get the latest form values
+function getLatestFormValues() {
+  const formData = new FormData(form)
+  const newParams = { ...params }
+  for (let [key, value] of formData.entries()) {
+    const keys = key.split(".")
+    let current = newParams
+    for (let i = 0; i < keys.length; i++) {
+      if (i === keys.length - 1) {
+        if (value === "") {
+          current[keys[i]] = undefined
+        } else {
+          current[keys[i]] = value
+        }
+      } else {
+        if (!current[keys[i]] || typeof current[keys[i]] !== "object") {
+          current[keys[i]] = {}
+        }
+        current = current[keys[i]]
+      }
+    }
+  }
+
+  console.log("[widget] getLatestFormValues", params, newParams)
+  return newParams
+}
+
+// Handle form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+  params = getLatestFormValues()
+  updateWidget()
+})
+
+// Function to update or create the widget
+let widgetApi
+function updateWidget(forceNew = false) {
+  params = getLatestFormValues()
+  if (widgetApi && !forceNew) {
+    console.log("[widget] Updating widget", params)
+    widgetApi.updateParams(params)
+  } else {
+    // Remove the existing widget if it exists
+    if (widgetApi) {
+      console.log(
+        "[widget] Widget exists, removing it",
+        document.querySelectorAll("iframe")
+      )
+      container.innerHTML = ""
+    }
+    console.log("[widget] Force creating widget", params)
+    widgetApi = createCowSwapWidget(container, { params, provider })
+  }
 }
 
 // 2️⃣ Update widget
@@ -46,8 +135,8 @@ switchTokensBtn.addEventListener("click", () => {
     sell: params.buy,
     buy: params.sell,
   }
-  console.log("switching tokens", params)
-  updateParams(params)
+  console.log("[widget] switching tokens", params)
+  updateWidget()
 })
 
 const clearTokensBtn = document.createElement("button")
@@ -58,8 +147,16 @@ clearTokensBtn.addEventListener("click", () => {
     sell: undefined,
     buy: undefined,
   }
-  console.log("clearing tokens", params)
-  updateParams(params)
+  console.log("[widget] clearing tokens", params)
+  updateWidget()
+})
+
+// New button to create a new widget instance
+const newInstanceBtn = document.createElement("button")
+newInstanceBtn.innerText = "🆕 Create New Instance"
+newInstanceBtn.addEventListener("click", () => {
+  console.log("[widget] Creating new widget instance")
+  updateWidget(true)
 })
 
 // Create a container for the buttons
@@ -69,10 +166,12 @@ buttonContainer.style =
 
 switchTokensBtn.style = "padding: 10px; border-radius: 15px; margin: 0 15px;"
 clearTokensBtn.style = "padding: 10px; border-radius: 15px; margin: 0 15px;"
+newInstanceBtn.style = "padding: 10px; border-radius: 15px; margin: 0 15px;"
 
 // Add buttons to the button container
 buttonContainer.appendChild(switchTokensBtn)
 buttonContainer.appendChild(clearTokensBtn)
+buttonContainer.appendChild(newInstanceBtn)
 
 // 💅 Style HTML (not widget related)
 //   Adds some <header /> <button /> , <main /> and some basic styles
@@ -84,22 +183,18 @@ link.target = "_blank"
 link.rel = "noreferrer"
 link.innerText = "👀 Show me the code"
 link.style = "color: white"
-// const header = document.createElement("header");
 const main = document.createElement("main")
-// header.style = "text-align: center;";
 title.style = "margin: 30px 30px 10px 30px"
 main.style =
   "display:flex; flex-direction: column; margin-top: 0; align-items: center;"
 document.body.style =
   "height: 100vh; display: flex; justify-content: center; color: #fff; background-color: #06172e; margin: 0;"
-// container.style = `width: ${params.width}`;
-// header.appendChild(title);
-// header.appendChild(link);
 main.appendChild(title)
 main.appendChild(link)
+main.appendChild(form)
 main.appendChild(buttonContainer)
 main.appendChild(container)
 document.body.appendChild(main)
 
 // 3️⃣ Render widget
-const { updateParams } = createCowSwapWidget(container, { params, provider })
+updateWidget()
