@@ -69,9 +69,8 @@ updateButton.textContent = "Update Params"
 updateButton.type = "submit"
 form.appendChild(updateButton)
 
-// Handle form submission
-form.addEventListener("submit", (e) => {
-  e.preventDefault()
+// Function to get the latest form values
+function getLatestFormValues() {
   const formData = new FormData(form)
   const newParams = { ...params }
   for (let [key, value] of formData.entries()) {
@@ -92,27 +91,35 @@ form.addEventListener("submit", (e) => {
       }
     }
   }
-  console.log("Updating params", params, newParams)
-  params = newParams
+
+  console.log("[widget] getLatestFormValues", params, newParams)
+  return newParams
+}
+
+// Handle form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+  params = getLatestFormValues()
   updateWidget()
 })
 
 // Function to update or create the widget
 let widgetApi
 function updateWidget(forceNew = false) {
+  params = getLatestFormValues()
   if (widgetApi && !forceNew) {
-    console.log("Updating widget", params)
+    console.log("[widget] Updating widget", params)
     widgetApi.updateParams(params)
   } else {
     // Remove the existing widget if it exists
     if (widgetApi) {
       console.log(
-        "Widget exists, removing it",
+        "[widget] Widget exists, removing it",
         document.querySelectorAll("iframe")
       )
       container.innerHTML = ""
     }
-    console.log("Force creating widget", params)
+    console.log("[widget] Force creating widget", params)
     widgetApi = createCowSwapWidget(container, { params, provider })
   }
 }
@@ -128,7 +135,7 @@ switchTokensBtn.addEventListener("click", () => {
     sell: params.buy,
     buy: params.sell,
   }
-  console.log("switching tokens", params)
+  console.log("[widget] switching tokens", params)
   updateWidget()
 })
 
@@ -140,7 +147,7 @@ clearTokensBtn.addEventListener("click", () => {
     sell: undefined,
     buy: undefined,
   }
-  console.log("clearing tokens", params)
+  console.log("[widget] clearing tokens", params)
   updateWidget()
 })
 
@@ -148,7 +155,7 @@ clearTokensBtn.addEventListener("click", () => {
 const newInstanceBtn = document.createElement("button")
 newInstanceBtn.innerText = "🆕 Create New Instance"
 newInstanceBtn.addEventListener("click", () => {
-  console.log("Creating new widget instance")
+  console.log("[widget] Creating new widget instance")
   updateWidget(true)
 })
 
