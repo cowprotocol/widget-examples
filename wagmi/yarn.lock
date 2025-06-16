@@ -22,37 +22,37 @@
     eventemitter3 "^5.0.1"
     preact "^10.24.2"
 
-"@cowprotocol/events@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/events/-/events-1.5.0.tgz#052e8c8d4462ffe64b81152f4ac3d90658a920e0"
-  integrity sha512-n7HTpd6ADSZrjwdtT9e79dfl1OWCqVHavm8l96FucW/De8ZCdFhPMsxLLdjdJlhWos3oFgpLjQNmthJvpzEl8A==
+"@cowprotocol/events@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/events/-/events-1.6.1.tgz#be9c9f761223408b366e40762f8ba3342ffec7ed"
+  integrity sha512-4ea0JYS5OE5FV58rxm5jUiwxzlMe96gpL2EaZIjov0MRincS5/RhlsfcBziWUQrPmTBTr1qxQ1Dbzw78D5eIbQ==
   dependencies:
     "@cowprotocol/types" "^1.2.0"
 
-"@cowprotocol/iframe-transport@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/iframe-transport/-/iframe-transport-1.1.0.tgz#18cf735134f05ecc4877a93dda5bd621c563de69"
-  integrity sha512-sT3B8WwmJqz1FhIgDtpmEZcDg3EFkTGevsPddLShSwdcaqV7fYsVeYv4JgB/b0fwIIVLO0dHdrUhoQh9DTihog==
+"@cowprotocol/iframe-transport@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/iframe-transport/-/iframe-transport-1.1.1.tgz#f9aca8f33c85ac61a4690ca3cdece50762ef5ead"
+  integrity sha512-kSMvYnYfYw3SNy1yCZnig+OYDKTJ1pDPrv67LvUFm4U8srdnNs5vmqJovU97WkQ07DhZmmwoqnXgtYPUBkkTiA==
 
 "@cowprotocol/types@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@cowprotocol/types/-/types-1.2.0.tgz#b036c7959122118d278e67200da2aeb88d5aed09"
   integrity sha512-K/jOyLtffgEFs52hRKX7tyDHtIA3asnsB9So6lINCPfNetr1GhM818+kf+f3sPtOHWsBpL3pTkjJphzDVCQntQ==
 
-"@cowprotocol/widget-lib@^0.18.0":
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-lib/-/widget-lib-0.18.0.tgz#3cb525766283ac819c74449884fe6fc590a5e3aa"
-  integrity sha512-uv4FBAqnoTEPwF7x7g1X65owuMRKfSoFSiDx3BRPvBBCIN3tvRMeOC9ZFlBEiJT677YnS4JWLItOIwQbwKxFrg==
+"@cowprotocol/widget-lib@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-lib/-/widget-lib-0.20.0.tgz#e3d3ef830a895c194a98cd0366be3fc255dd9633"
+  integrity sha512-+iRFm8YeKP0qIjK0D08yfinRRHUNc/h0A0sRopIeJCRiKsIJR2legwD02BuzhNv3EiwxwH7aRmqdYpILYJzGUw==
   dependencies:
-    "@cowprotocol/events" "^1.5.0"
-    "@cowprotocol/iframe-transport" "^1.1.0"
+    "@cowprotocol/events" "^1.6.1"
+    "@cowprotocol/iframe-transport" "^1.1.1"
 
-"@cowprotocol/widget-react@0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-react/-/widget-react-0.13.0.tgz#d90f61f717e83f6fec8212e1ae2ababe2fbaa04e"
-  integrity sha512-kYyio+nF0kjK5CZzM5GesFeZLbbV87wz1JgnCtzcMSf7iDDK/buyw5kQQloyz5Xkli6J8yayO1g11yH5ZuFk8Q==
+"@cowprotocol/widget-react@0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/widget-react/-/widget-react-0.14.0.tgz#837c6b5cf3ed3ac2eb3bf43390fe2e7d7a43053e"
+  integrity sha512-6oPbGu8MXQJuq88fjehCTwsp3LAMWyyGS3WiJCqHXrQVSryjsbtcsZF+Wgcf1SeNMXb7CPtVRln5BTlvgILrsg==
   dependencies:
-    "@cowprotocol/widget-lib" "^0.18.0"
+    "@cowprotocol/widget-lib" "^0.20.0"
 
 "@ecies/ciphers@^0.2.3":
   version "0.2.3"
