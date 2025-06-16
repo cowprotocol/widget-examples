@@ -1,14 +1,15 @@
 import './App.css'
 import { WagmiProvider } from 'wagmi'
-import { persister, queryClient, wagmiCconfig } from './config'
+import { persister, queryClient, wagmiConfig } from './config'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 
 import { Profile } from './Profile.tsx'
 import { WalletOptions } from './WalletOptions'
+import { Widget } from './Widget.tsx'
 
 function App() {
   return (
-    <WagmiProvider config={wagmiCconfig}>
+    <WagmiProvider config={wagmiConfig}>
         <PersistQueryClientProvider
             client={queryClient}
             persistOptions={{ persister }}
@@ -17,6 +18,8 @@ function App() {
             <br/>
             <br/>
             <Profile />
+            <br/>
+            <Widget />
         </PersistQueryClientProvider>
     </WagmiProvider>
   )

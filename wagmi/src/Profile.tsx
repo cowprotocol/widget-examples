@@ -1,14 +1,18 @@
-import { useAccount, useEnsName } from 'wagmi'
+import { useAccount } from 'wagmi'
+import { disconnect } from 'wagmi/actions'
+import { wagmiConfig } from "./config.ts";
 
 export function Profile() {
     const { address } = useAccount()
-    const { data, error, status } = useEnsName({ address })
-    if (status === 'pending') return <div>Loading ENS name</div>
-    if (status === 'error')
-        return <div>Error fetching ENS name: {error.message}</div>
 
-    return <div>
-        <div>Address: {address}</div>
-        <div>ENS name: {data}</div>
-    </div>
+    const onDisconnect = async () => {
+        await disconnect(wagmiConfig)
+    }
+
+    return (
+        <div>
+            <div>Address: {address}</div>
+            {address && <button onClick={onDisconnect}>Diconnect</button>}
+        </div>
+    )
 }

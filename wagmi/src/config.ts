@@ -5,7 +5,7 @@ import { http, createConfig, deserialize, serialize } from 'wagmi'
 import { injected, walletConnect } from 'wagmi/connectors'
 
 
-export const wagmiCconfig = createConfig({
+export const wagmiConfig = createConfig({
     chains: [mainnet, sepolia],
     transports: {
         [mainnet.id]: http(),
@@ -13,7 +13,7 @@ export const wagmiCconfig = createConfig({
     },
     connectors: [
         injected(),
-        walletConnect({ projectId: 'cow-widge-wagmi' }),
+        walletConnect({ projectId: '7bd490257c3457cc6a5ebcc02066c21a' }),
     ],
 })
 
