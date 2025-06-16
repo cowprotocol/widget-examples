@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useAccount, useConfig } from 'wagmi'
+import { useConfig } from 'wagmi'
 import type { EthereumProvider } from '@cowprotocol/widget-lib'
 
 export function useEip1193Provider() {
     const config = useConfig()
-    const { isDisconnected } = useAccount()
     const [provider, setProvider] = useState<EthereumProvider | undefined>(undefined)
 
     useEffect(() => {
@@ -20,11 +19,6 @@ export function useEip1193Provider() {
             })
         })
     }, [config])
-
-    useEffect(() => {
-        if (!provider || !isDisconnected) return
-
-    }, [provider, isDisconnected])
 
     return provider
 }

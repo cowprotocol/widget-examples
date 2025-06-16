@@ -12,7 +12,7 @@ export function Profile() {
     return (
         <div>
             <div>Address: {address}</div>
-            {address && <button onClick={onDisconnect}>Diconnect</button>}
+            {address && <button onClick={onDisconnect}>Disconnect</button>}
         </div>
     )
 }
