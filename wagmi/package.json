@@ -10,8 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cowprotocol/widget-react": "0.13.0",
+    "@tanstack/query-sync-storage-persister": "^5.80.7",
+    "@tanstack/react-query": "^5.80.7",
+    "@tanstack/react-query-persist-client": "^5.80.7",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "viem": "2.x",
+    "wagmi": "^2.15.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
